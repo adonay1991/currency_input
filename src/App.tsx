@@ -8,9 +8,9 @@ const App: Component = () => {
     <div class={styles.App}>
       <header class={styles.header}>
         <CurrencyInput
-          isRequired={true}
-          label={"Insert Currency"}
-          type={"number"}
+          isRequired={false}
+          type={"text"}
+          intlConfig={{locale: "en-US", currency: "USD"}}
         />
       </header>
     </div>

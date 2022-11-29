@@ -1,13 +1,12 @@
-
-
-export type IntlConfig = {
-  locale: string;
+export interface IntlConfig extends HTMLInputElement{
+  locale?: string;
   currency?: string;
-};
+}
 
-export type CurrencyProps = {
+export type CurrencyProps = IntlConfig & {
   label?: string;
-  type: "number";
+  type: "text" | 'number';
+  pattern?: string,
   isRequired?: boolean;
   id?: string;
   maxLength?: number;
@@ -16,5 +15,5 @@ export type CurrencyProps = {
   placeholder?: string;
   prefix?: string;
   suffix?: string;
-  intlConfig?: IntlConfig;
+  intlConfig?: IntlConfig ;
 };
