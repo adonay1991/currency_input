@@ -1,31 +1,32 @@
 import { Component, mergeProps } from "solid-js";
 import { CurrencyProps } from "./currencyInput.types";
 import { getLocaleConfig } from "../utils/intLocale";
+import { CustomInput } from "../CustomInput/CustomInput";
 
-export const CurrencyInput: Component<CurrencyProps> = (userProps) => {
+export const CurrencyInput: Component<CurrencyProps> = (
+  userProps: CurrencyProps
+) => {
   const props = mergeProps(
     {
       label: "",
-      type: "text",
       isRequired: false,
       pattern: "^[0-9]+$",
       IntlConfig: { locale: "en-US", currency: "USD" },
+      placeholder: "",
+      value: "",
     },
     userProps
   );
 
-  console.log(getLocaleConfig(props.IntlConfig));
   return (
     <label>
-      {/*<span>*/}
-      {/*  {props.label} {props.isRequired && "*"}*/}
-      {/*</span>*/}
-      <input
-        pattern={props.pattern}
+      <span>
+        {props.label} {props.isRequired && "*"}
+      </span>
+      <CustomInput
         value={getLocaleConfig(props.IntlConfig).currencySymbol}
-        type={props.type}
-        required={props.isRequired}
-        IntlConfig={getLocaleConfig(props.IntlConfig)}
+        placeholder={props.placeholder}
+        intlConfig={getLocaleConfig(props.IntlConfig)}
       />
     </label>
   );
