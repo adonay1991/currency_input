@@ -1,14 +1,12 @@
 import { IntlConfig } from "../CurrencyInput";
 
 type LocaleConfig = {
-  locale: string;
   currencySymbol: string;
   prefix: string;
   suffix: string;
 };
 
 const defaultConfig: LocaleConfig = {
-  locale: "",
   currencySymbol: "",
   prefix: "",
   suffix: "",
@@ -22,7 +20,7 @@ export const getLocaleConfig = (intlConfig?: IntlConfig): LocaleConfig => {
   const numberFormatter = locale
     ? new Intl.NumberFormat(
         locale,
-        currency ? {  currency, style: "currency" } : undefined
+        currency ? { currency, style: "currency" } : undefined
       )
     : new Intl.NumberFormat();
 
