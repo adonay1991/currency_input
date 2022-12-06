@@ -1,19 +1,20 @@
-export interface IntlConfig extends HTMLInputElement{
+import { JSX } from "solid-js";
+
+export type IntlConfig = {
   locale?: string;
   currency?: string;
-}
+} & JSX.InputHTMLAttributes<HTMLInputElement>;
 
-export type CurrencyProps = IntlConfig & {
+export type CurrencyProps = {
   label?: string;
-  type: "text" | 'number';
-  pattern?: string,
+  type?: "text" | "number";
+  pattern?: string;
+  value?: string;
   isRequired?: boolean;
   id?: string;
   maxLength?: number;
   minLength?: number;
   disabled?: boolean;
   placeholder?: string;
-  prefix?: string;
-  suffix?: string;
-  intlConfig?: IntlConfig ;
+  intlConfig?: IntlConfig;
 };
